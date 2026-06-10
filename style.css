@@ -1,0 +1,466 @@
+@layer global {
+    /* FONTS */
+
+    /* Poppins */
+    /* https://gwfh.mranftl.com/fonts */
+
+    @font-face {
+        font-display: swap;
+        font-family: 'Red Hat Display';
+        font-style: normal;
+        font-weight: 400;
+        src: url('./fonts/red-hat-display-v21-latin-regular.woff2')
+            format('woff2');
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: 'Red Hat Display';
+        font-style: normal;
+        font-weight: 500;
+        src: url('./fonts/red-hat-display-v21-latin-500.woff2') format('woff2');
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: 'Red Hat Display';
+        font-style: normal;
+        font-weight: 600;
+        src: url('./fonts/red-hat-display-v21-latin-600.woff2') format('woff2');
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: 'Red Hat Display';
+        font-style: normal;
+        font-weight: 700;
+        src: url('./fonts/red-hat-display-v21-latin-700.woff2') format('woff2');
+    }
+
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Red Hat Display';
+        font-style: normal;
+        font-weight: 800;
+        src: url('./fonts/red-hat-display-v21-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Red Hat Display';
+        font-style: normal;
+        font-weight: 900;
+        src: url('./fonts/red-hat-display-v21-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    :root {
+        /* COLORS */
+        --c-cyan-light: hsl(192, 90%, 77%);
+        --c-cyan-dark: hsl(192, 37%, 48%);
+        --c-cyan-dark-hover: hsl(192, 37%, 33%);
+        --c-purple-light: hsl(268, 100%, 86%);
+        --c-purple-dark: hsl(268, 34%, 53%);
+        --c-purple-dark-hover: hsl(268, 34%, 38%);
+        --c-slate-light: hsl(240, 18%, 85%);
+        --c-slate-medium: hsl(240, 10%, 57%);
+        --c-slate-dark: hsl(240, 21%, 20%);
+        --c-white: hsl(0, 0%, 98%);
+
+        --color-btn-primary: var(--c-cyan-dark);
+        --color-btn-primary-hover: var(--c-cyan-dark-hover);
+        --color-btn-secondary: var(--c-purple-dark);
+        --color-btn-secondary-hover: var(--c-purple-dark-hover);
+
+        /* FONT FAMILIES */
+        --font-sans: 'Red Hat Display', Arial, Helvetica, sans-serif;
+
+        /* FONT SIZES */
+        --fs-12: calc(12 / 16 * 1rem);
+        --fs-14: calc(14 / 16 * 1rem);
+        --fs-16: calc(16 / 16 * 1rem);
+        --fs-18: calc(18 / 16 * 1rem);
+        --fs-32: calc(32 / 16 * 1rem);
+        --fs-36: calc(36 / 16 * 1rem);
+        --fs-40: calc(40 / 16 * 1rem);
+        --fs-48: calc(48 / 16 * 1rem);
+        --fs-64: calc(64 / 16 * 1rem);
+
+        /* SPACING */
+        --sp-4: 4px;
+        --sp-8: 8px;
+        --sp-16: 16px;
+        --sp-18: 18px;
+        --sp-24: 24px;
+        --sp-28: 28px;
+        --sp-32: 32px;
+        --sp-40: 40px;
+        --sp-48: 48px;
+        --sp-56: 56px;
+        --sp-64: 64px;
+        --sp-72: 72px;
+        --sp-80: 80px;
+        --sp-112: 112px;
+    }
+
+    /* CSS RESET */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Improve media defaults */
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    body {
+        background-color: var(--c-white);
+        color: var(--c-slate-dark);
+        font-family: var(--font-sans);
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: var(--sp-24);
+    }
+
+    h2 {
+        margin-top: var(--sp-16);
+        margin-bottom: var(--sp-32);
+    }
+
+    h3 {
+        color: var(--c-cyan-dark);
+    }
+
+    p {
+        color: var(--c-slate-medium);
+    }
+
+    footer {
+        position: relative;
+        top: -29px;
+
+        background-image: url('./images/desktop/image-footer.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            background-color: var(--c-cyan-dark);
+            content: '';
+            opacity: 0.8;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .wrapper {
+        margin-top: var(--sp-48);
+    }
+}
+
+@layer component {
+    .logo {
+        width: 118px;
+        margin-inline: auto;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-48);
+
+        margin-top: var(--sp-64);
+
+        .hero-combined {
+            margin-inline: auto;
+        }
+
+        .hero-left,
+        .hero-right {
+            display: none;
+        }
+
+        .hero-center {
+            margin-inline: auto;
+            width: calc(100% - 60px);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: var(--sp-16);
+            align-items: center;
+
+            margin-top: var(--sp-24);
+        }
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-64);
+
+        margin-inline: auto;
+        margin-top: var(--sp-64);
+        width: calc(100% - 60px);
+    }
+
+    .image-wrapper {
+        display: grid;
+        gap: var(--sp-16);
+        grid-template-columns: 1fr 1fr;
+
+        margin-inline: auto;
+
+        img {
+            border-radius: var(--sp-16);
+        }
+    }
+
+    .number-wrapper {
+        .line {
+            border-left: 1px solid var(--c-slate-light);
+            margin-inline: auto;
+            width: 1px;
+            height: 80px;
+        }
+
+        .number {
+            background-color: var(--c-white);
+            border-radius: 50%;
+            border: 1px solid var(--c-slate-light);
+            margin-inline: auto;
+
+            padding: var(--sp-16);
+
+            width: 56px;
+            height: 56px;
+        }
+    }
+
+    .number-wrapper.footer {
+        position: relative;
+        z-index: 10;
+    }
+
+    .meet-version {
+        color: var(--c-cyan-light);
+    }
+
+    .footer-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--sp-24);
+
+        padding: var(--sp-64) var(--sp-32);
+        z-index: 1;
+
+        h2 {
+            margin: 0;
+            color: var(--c-white);
+        }
+
+        p {
+            color: var(--c-white);
+        }
+
+        .meet-version {
+            color: var(--c-purple-light);
+        }
+    }
+}
+
+@layer query {
+    @media (width >= calc(600 / 16 * 1rem)) and (width <= calc(1024 / 16 * 1rem)) {
+        .text-preset-1 {
+            font-size: var(--fs-48);
+        }
+
+        .text-preset-2 {
+            font-size: var(--fs-36);
+        }
+
+        .text-preset-3 {
+            font-size: var(--fs-14);
+        }
+
+        .hero {
+            .hero-center {
+                margin-inline: auto;
+                width: calc(450 / 16 * 1rem);
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .image-wrapper {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .heading-wrapper {
+            margin-inline: auto;
+            max-width: calc(500 / 16 * 1rem);
+        }
+
+        .footer-wrapper {
+            margin-inline: auto;
+            padding-inline: 0;
+            width: calc(510 / 16 * 1rem);
+        }
+    }
+
+    @media (width > calc(1024 / 16 * 1rem)) {
+        .text-preset-1 {
+            font-size: var(--fs-64);
+        }
+
+        .text-preset-2 {
+            font-size: var(--fs-40);
+        }
+
+        .text-preset-3 {
+            font-size: var(--fs-18);
+        }
+
+        .wrapper {
+            margin-inline: auto;
+            max-width: calc(1400 / 16 * 1rem);
+            width: calc(100% - 80px);
+        }
+
+        .hero {
+            display: grid;
+            gap: var(--sp-32);
+            grid-template-columns: 1fr calc(500 / 16 * 1rem) 1fr;
+
+            .hero-combined {
+                display: none;
+            }
+
+            .hero-left,
+            .hero-right {
+                display: block;
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .image-wrapper {
+            grid-template-columns: repeat(4, 1fr);
+
+            max-width: calc(1120 / 16 * 1rem);
+        }
+
+        .heading-wrapper {
+            margin-inline: auto;
+            max-width: calc(550 / 16 * 1rem);
+        }
+
+        .footer-wrapper {
+            display: grid;
+            grid-template-columns: 1.25fr 1.25fr 1fr;
+            gap: var(--sp-32);
+            justify-items: flex-end;
+
+            margin-inline: auto;
+            max-width: calc(1120 / 16 * 1rem);
+            padding: var(--sp-64) var(--sp-64);
+            text-align: left;
+        }
+    }
+}
+
+@layer utility {
+    .btn {
+        border: none;
+        border-radius: var(--sp-28);
+        color: var(--c-white);
+        cursor: pointer;
+        padding: var(--sp-16) var(--sp-40);
+        transition: background-color 0.2s ease;
+    }
+
+    .btn-primary {
+        background-color: var(--color-btn-primary);
+
+        &:hover {
+            background-color: var(--color-btn-primary-hover);
+        }
+    }
+
+    .btn-secondary {
+        background-color: var(--color-btn-secondary);
+
+        &:hover {
+            background-color: var(--color-btn-secondary-hover);
+        }
+    }
+
+    .text-preset-1 {
+        font-size: var(--fs-40);
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1.1;
+    }
+
+    .text-preset-2 {
+        font-size: var(--fs-32);
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1.1;
+    }
+
+    .text-preset-3 {
+        font-size: var(--fs-12);
+        font-weight: 900;
+        letter-spacing: 4px;
+        line-height: 1.1;
+        text-transform: uppercase;
+    }
+
+    .text-preset-4 {
+        font-size: var(--fs-16);
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 1.5;
+    }
+
+    .text-preset-5 {
+        font-size: var(--fs-16);
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 1.5;
+    }
+}
